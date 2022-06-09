@@ -1,0 +1,12 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        if(nums.length==1){return nums[0];}
+        int max = nums[0] , res = 0; //init max with first 
+        for(int i=0;i<nums.length;i++){
+            res += nums[i]; //sum of consecutive
+            max =  Math.max(res,max); //max betweeen curr and prev sum
+             if(res<0){res=0;} // if sum is negative then whats the point leave the range and start with fresh (0)
+        }
+       return max ; 
+    }
+}
