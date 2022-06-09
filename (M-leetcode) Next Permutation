@@ -1,0 +1,35 @@
+class Solution {
+    public void nextPermutation(int[] a) {
+        if(a.length==1){return;}
+        int last=-1,n=a.length;
+        //to find the first peek
+        for(int i=1;i<n;++i){
+            if(a[i]>a[i-1]){
+                last = i;
+            }
+        }
+        //if no peek then reverse it 
+        if(last==-1){
+            for(int i=0;i<n/2;i++){
+                int temp = a[i];
+                a[i] = a[n-i-1];
+                a[n-i-1] = temp;
+            }
+        }
+        //if peek exits then find next peek between last peek and end
+        if(last>-1){
+            int preLast = last;
+           for(int i=last;i<n;i++){
+               if(a[i]>a[last-1] && a[i]<a[last]){
+                   preLast = i; // found next peek
+               }
+           } 
+            int temp = a[last-1];
+            a[last-1] = a[preLast];
+             a[preLast] = temp; //next peek <swap> with last peek left lower value
+            
+             Arrays.sort(a, last, n);//reverse the elements from last peek to end
+        
+            }
+    }
+}
