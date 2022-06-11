@@ -1,0 +1,17 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int min = prices[0],maxProf = 0;
+        for(int i=0;i<prices.length;i++)
+        {
+            if(prices[i]<min)
+            {
+            min = prices[i];//get current left minimum
+            }
+            if((prices[i] - min)>maxProf){
+                maxProf = prices[i] - min; //calculate profit till the current index.
+            }
+        }
+      
+        return maxProf;
+    }
+}
