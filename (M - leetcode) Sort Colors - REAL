@@ -1,0 +1,33 @@
+//Dutch national flag algo
+//there shold be 0 in left of low
+//mid will take care of 1
+//high will take care of 2
+//if mid = 0 then swap l and mid , l++  mid++
+//if mid = 1 then mid++
+//if mid = 2 then swap mid and high , high--
+//till mid < = high
+class Solution {
+    public void sortColors(int[] arr) {
+        int n = arr.length;
+        int l = 0,h = n-1,m=0;
+         while(m<=h){
+          switch(arr[m]){
+              case 0: 
+                  int temp = arr[l];
+                  arr[l] =arr[m];
+                  arr[m] = temp;
+                   l++;m++;
+                  break;
+                    case 1: 
+                  m++;
+                  break;
+                    case 2: 
+                  int temp1 = arr[h];
+                  arr[h] =arr[m];
+                  arr[m] = temp1;
+                  h--;
+                  break;
+                  }
+                  }
+        }
+    }
